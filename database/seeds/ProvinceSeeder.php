@@ -1,6 +1,5 @@
 <?php
 
-namespace Database\Seeders;
 use App\Province;
 use Illuminate\Database\Seeder;
 
