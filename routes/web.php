@@ -21,6 +21,8 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/beranda', 'BerandaController@index')->name('beranda');
-Route::get('/api/province/{id}/cities', 'BerandaController@index');
+Route::post('/store', 'BerandaController@store')->name('store');
+Route::get('/api/province/{id}/cities', 'BerandaController@getCities');
+Route::post('/api/cities', 'BerandaController@searchCities');
 
 

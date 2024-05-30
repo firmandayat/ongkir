@@ -20,3 +20,23 @@ $('select[name="origin_province"]').on("change", function () {
     }
 });
 
+$("#destination_city").select2({
+    ajax: {
+        url: "/api/cities",
+        type: "POST",
+        dataType: "JSON",
+        delay: 150,
+        data: function (params) {
+            return {
+                _token: $('meta[name="csrf-token"]').attr("content"),
+                search: $.trim(params.term),
+            };
+        },
+        processResults: function (response) {
+            return {
+                results: response,
+            };
+        },
+        cache: true,
+    },
+});
