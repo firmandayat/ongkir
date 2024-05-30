@@ -20,3 +20,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/beranda', 'BerandaController@index')->name('beranda');
+Route::get('/api/province/{id}/cities', 'BerandaController@index');
+
+
