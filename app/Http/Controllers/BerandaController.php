@@ -89,13 +89,13 @@ class BerandaController extends Controller
 
         if (empty($search)) {
             $cities = City::orderBy('title', 'asc')
-                ->select('id', 'title')
+                ->select('code', 'title')
                 ->limit(5)
                 ->get();
         } else {
             $cities = City::orderBy('title', 'asc')
                 ->where('title', 'like', '%' . $search . '%')
-                ->select('id', 'title')
+                ->select('code', 'title')
                 ->limit(5)
                 ->get();
         }
@@ -104,7 +104,7 @@ class BerandaController extends Controller
 
         foreach ($cities as $city) {
             $response[] = [
-                'id' => $city->id,
+                'id' => $city->code,
                 'text' => $city->title
             ];
         }
